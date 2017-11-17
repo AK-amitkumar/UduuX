@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="clavem.list">
+      <field name="name">clavem list</field>
+      <field name="model">clavem.clavem</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="clavem.action_window">
+      <field name="name">clavem window</field>
+      <field name="res_model">clavem.clavem</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="clavem.action_server">
+      <field name="name">clavem server</field>
+      <field name="model_id" ref="model_clavem_clavem"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="clavem" id="clavem.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="clavem.menu_1" parent="clavem.menu_root"/>
+    <menuitem name="Menu 2" id="clavem.menu_2" parent="clavem.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="clavem.menu_1_list" parent="clavem.menu_1"
+              action="clavem.action_window"/>
+    <menuitem name="Server to list" id="clavem" parent="clavem.menu_2"
+              action="clavem.action_server"/>
+    -->
+  </data>
+</odoo>

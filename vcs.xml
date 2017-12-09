@@ -10,8 +10,12 @@
           <option name="url" value="https://github.com/n1ku/dev-addons" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="git@github.com:UniteIT/odooX.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/dev/odoo-10/odoo/dev-addons" />
+    <option name="cloneParentDir" value="$USER_HOME$/dev/odoo-10/odoo" />
   </component>
 </application>

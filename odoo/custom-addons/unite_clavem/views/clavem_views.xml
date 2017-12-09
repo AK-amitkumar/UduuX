@@ -1,0 +1,94 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unite_clavem_list">
+      <field name="name">unite_clavem_list</field>
+      <field name="model">unite.clavem</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="descriptionAttr" editabel="True"/>
+          <field name="userNameAttr" editabel="True"/>
+          <field name="passwordAttr" password="True" editabel="True"/>
+          <field name="customerAttr" editabel="True"/>
+          <field name="refSysAttr" editabel="True"/>
+          <field name="eMailAttr" editabel="True"/>
+          <field name="infoAttr" editabel="True"/>
+        </tree>
+      </field>
+    </record>
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="unite_clavem_form">
+      <field name="name">unite_clavem_list</field>
+      <field name="model">unite.clavem</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <group name="group_top">
+
+              <group name="group_left">
+                <field name="descriptionAttr"/>
+                <field name="userNameAttr" placeholder="Enter unsername here"/>
+                <field name="passwordAttr" placeholder="Enter password here"/>
+                <field name="customerAttr"/>
+                <field name="refSysAttr"/>
+                <field name="eMailAttr"/>
+                <field name="isInternal"/>
+              </group>
+
+              <group name="group_right">
+                <field name="write_date" readOnly="True" class="oe_read_only"/>
+                <field name="write_uid" readOnly="True" class="oe_read_only"/>
+                <field name="create_date" readOnly="True" class="oe_read_only"/>
+                <field name="create_uid" readOnly="True" class="oe_read_only"/>
+              </group>
+
+              <group name="group_bottom">
+                <field name="infoAttr" size=""/>
+              </group>
+
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="unite_clavem.action_window">
+      <field name="name">Password List</field>
+      <field name="res_model">unite.clavem</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="unite_clavem.action_server">
+      <field name="name">unite_clavem server</field>
+      <field name="model_id" ref="model_unite_clavem_unite_clavem"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <menuitem name="Clavem" id="clavem_menu_root"/>
+    <!-- menu categories -->
+
+    <menuitem name="Show Password List" id="unite_clavem_listMenu" parent="clavem_menu_root" action="unite_clavem.action_window"/>
+    <!-- <menuitem name="Create" id="unite_clavem_Create" parent="clavem_menu_root"/> -->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="unite_clavem_listMenu0" parent="unite_clavem_listMenu"
+              />   -->
+    <!--
+    <menuitem name="Server to list" id="unite_clavem" parent="unite_clavem.menu_2"
+              action="unite_clavem.action_server"/>
+              -->
+  </data>
+</odoo>

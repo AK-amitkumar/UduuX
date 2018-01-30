@@ -1,2 +1,0 @@
-id,name,model,function,interval_number,interval_type,numbercall,active
-"clear_messagebank","Clear Messagebank",voip.call,clear_messagebank,24,hours,-1,true

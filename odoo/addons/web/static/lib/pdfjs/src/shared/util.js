@@ -801,7 +801,7 @@ var PageViewport = PDFJS.PageViewport = (function PageViewportClosure() {
     this.offsetY = offsetY;
 
     // creating transform to convert pdf coordinate system to the normal
-    // contacts_clavem like coordinates taking in account scale and rotation
+    // canvas like coordinates taking in account scale and rotation
     var centerX = (viewBox[2] + viewBox[0]) / 2;
     var centerY = (viewBox[3] + viewBox[1]) / 2;
     var rotateA, rotateB, rotateC, rotateD;
@@ -873,7 +873,7 @@ var PageViewport = PDFJS.PageViewport = (function PageViewportClosure() {
     },
     /**
      * Converts PDF point to the viewport coordinates. For examples, useful for
-     * converting PDF location into contacts_clavem pixel coordinates.
+     * converting PDF location into canvas pixel coordinates.
      * @param x {number} X coordinate.
      * @param y {number} Y coordinate.
      * @returns {Object} Object that contains 'x' and 'y' properties of the
@@ -899,7 +899,7 @@ var PageViewport = PDFJS.PageViewport = (function PageViewportClosure() {
     },
     /**
      * Converts viewport coordinates to the PDF location. For examples, useful
-     * for converting contacts_clavem pixel location into PDF one.
+     * for converting canvas pixel location into PDF one.
      * @param x {number} X coordinate.
      * @param y {number} Y coordinate.
      * @returns {Object} Object that contains 'x' and 'y' properties of the

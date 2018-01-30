@@ -479,7 +479,7 @@ def html_to_text(element):
 _PADDED_BLOCK = set('p h1 h2 h3 h4 h5 h6'.split())
 # https://developer.mozilla.org/en-US/docs/HTML/Block-level_elements minus p
 _MISC_BLOCK = set((
-    'address article aside audio blockquote contacts_clavem dd dl div figcaption figure'
+    'address article aside audio blockquote canvas dd dl div figcaption figure'
     ' footer form header hgroup hr ol output pre section tfoot ul video'
 ).split())
 

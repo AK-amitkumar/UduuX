@@ -4672,7 +4672,7 @@ window.Raphael.vml && function (R) {
         stroke[se + "arrowwidth"] = h;
     },
     setFillAndStroke = function (o, params) {
-        // o.paper.contacts_clavem.style.display = "none";
+        // o.paper.canvas.style.display = "none";
         o.attrs = o.attrs || {};
         var node = o.node,
             a = o.attrs,
@@ -4864,7 +4864,7 @@ window.Raphael.vml && function (R) {
             var brect = span.getBoundingClientRect();
             res.W = a.w = (brect.right - brect.left) / m;
             res.H = a.h = (brect.bottom - brect.top) / m;
-            // res.paper.contacts_clavem.style.display = "none";
+            // res.paper.canvas.style.display = "none";
             res.X = a.x;
             res.Y = a.y + res.H / 2;
 
@@ -4892,7 +4892,7 @@ window.Raphael.vml && function (R) {
             }
             res.textpath.style["v-text-kern"] = true;
         }
-        // res.paper.contacts_clavem.style.display = E;
+        // res.paper.canvas.style.display = E;
     },
     addGradientFill = function (o, gradient, fill) {
         o.attrs = o.attrs || {};
@@ -5177,12 +5177,12 @@ window.Raphael.vml && function (R) {
                     params[subkey] = par[subkey];
                 }
             }
-            // this.paper.contacts_clavem.style.display = "none";
+            // this.paper.canvas.style.display = "none";
             if (params.text && this.type == "text") {
                 this.textpath.string = params.text;
             }
             setFillAndStroke(this, params);
-            // this.paper.contacts_clavem.style.display = E;
+            // this.paper.canvas.style.display = E;
         }
         return this;
     };

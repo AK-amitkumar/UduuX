@@ -19,7 +19,7 @@ var PDFSlidesViewer = (function(){
         // promise business
         this.pageRendering = false;
         this.pageNumPending = null;
-        //contacts_clavem
+        //canvas
         this.canvas = $canvas;
         this.canvas_context = $canvas.getContext('2d');
         // PDF JS business
@@ -52,7 +52,7 @@ var PDFSlidesViewer = (function(){
     };
 
     /**
-     * Get page info from document, resize contacts_clavem accordingly, and render page.
+     * Get page info from document, resize canvas accordingly, and render page.
      * @param page_number : Page number.
      */
     PDFSlidesViewer.prototype.renderPage = function(page_number) {
@@ -63,7 +63,7 @@ var PDFSlidesViewer = (function(){
             var viewport = page.getViewport(self.pdf_scale);
             self.canvas.height = viewport.height;
             self.canvas.width = viewport.width;
-            // Render PDF page into contacts_clavem context
+            // Render PDF page into canvas context
             var renderContext = {
                 canvasContext: self.canvas_context,
                 viewport: viewport

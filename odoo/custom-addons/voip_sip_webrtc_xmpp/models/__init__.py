@@ -1,1 +1,0 @@
-import res_users, res_partner, xmpp_account, voip_message_compose

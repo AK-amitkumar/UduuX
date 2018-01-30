@@ -323,7 +323,7 @@ var TilingPattern = (function TilingPatternClosure() {
       var x0 = bbox[0], y0 = bbox[1], x1 = bbox[2], y1 = bbox[3];
 
       var topLeft = [x0, y0];
-      // we want the contacts_clavem to be as large as the step size
+      // we want the canvas to be as large as the step size
       var botRight = [x0 + xstep, y0 + ystep];
 
       var width = botRight[0] - topLeft[0];

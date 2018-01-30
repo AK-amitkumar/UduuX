@@ -124,7 +124,7 @@ var SlideDialog = Widget.extend({
                         var context = canvas.getContext('2d');
                         canvas.height = viewport.height;
                         canvas.width = viewport.width;
-                        // Render PDF page into contacts_clavem context
+                        // Render PDF page into canvas context
                         page.render({
                             canvasContext: context,
                             viewport: viewport

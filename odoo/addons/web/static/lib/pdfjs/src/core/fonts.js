@@ -2468,7 +2468,7 @@ var Font = (function FontClosure() {
 
       this.missingFile = true;
       // The file data is not specified. Trying to fix the font name
-      // to be used with the contacts_clavem.font.
+      // to be used with the canvas.font.
       var fontName = name.replace(/[,_]/g, '-');
       var isStandardFont = !!stdFontMap[fontName] ||
         !!(nonStdFontMap[fontName] && stdFontMap[nonStdFontMap[fontName]]);
@@ -2739,7 +2739,7 @@ var Font = (function FontClosure() {
       }
       // Try to move control characters, special characters and already mapped
       // characters to the private use area since they will not be drawn by
-      // contacts_clavem if left in their current position. Also, move characters if the
+      // canvas if left in their current position. Also, move characters if the
       // font was symbolic and there is only an identity unicode map since the
       // characters probably aren't in the correct position (fixes an issue
       // with firefox and thuluthfont).

@@ -24,8 +24,8 @@
   // Cause positive result on feature-detection:
   HTMLCanvasElement.prototype.mozPrintCallback = undefined;
 
-  var canvases;   // During print task: non-live NodeList of <contacts_clavem> elements
-  var index;      // Index of <contacts_clavem> element that is being processed
+  var canvases;   // During print task: non-live NodeList of <canvas> elements
+  var index;      // Index of <canvas> element that is being processed
 
   var print = window.print;
   window.print = function print() {

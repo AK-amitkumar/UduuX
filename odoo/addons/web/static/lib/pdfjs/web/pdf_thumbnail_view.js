@@ -44,7 +44,7 @@ var PDFThumbnailView = (function PDFThumbnailViewClosure() {
     tempCanvas.width = width;
     tempCanvas.height = height;
 
-    // Since this is a temporary contacts_clavem, we need to fill the contacts_clavem with a white
+    // Since this is a temporary canvas, we need to fill the canvas with a white
     // background ourselves. |_getPageDrawContext| uses CSS rules for this.
     var ctx = tempCanvas.getContext('2d');
     ctx.save();

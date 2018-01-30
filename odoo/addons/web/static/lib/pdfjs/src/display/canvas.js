@@ -21,12 +21,12 @@
 
 'use strict';
 
-// <contacts_clavem> contexts store most of the state we need natively.
+// <canvas> contexts store most of the state we need natively.
 // However, PDF needs a bit more state, which we store here.
 
-// Minimal font size that would be used during contacts_clavem fillText operations.
+// Minimal font size that would be used during canvas fillText operations.
 var MIN_FONT_SIZE = 16;
-// Maximum font size that would be used during contacts_clavem fillText operations.
+// Maximum font size that would be used during canvas fillText operations.
 var MAX_FONT_SIZE = 100;
 var MAX_GROUP_SIZE = 4096;
 
@@ -171,7 +171,7 @@ var CachedCanvases = (function CachedCanvasesClosure() {
         canvasEntry = cache[id];
         canvasEntry.canvas.width = width;
         canvasEntry.canvas.height = height;
-        // reset contacts_clavem transform for emulated mozCurrentTransform, if needed
+        // reset canvas transform for emulated mozCurrentTransform, if needed
         canvasEntry.context.setTransform(1, 0, 0, 1, 0, 0);
       } else {
         var canvas = createScratchCanvas(width, height);
@@ -445,7 +445,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       return;
     }
 
-    // Put the image data to the contacts_clavem in chunks, rather than putting the
+    // Put the image data to the canvas in chunks, rather than putting the
     // whole image at once.  This saves JS memory, because the ImageData object
     // is smaller. It also possibly saves C++ memory within the implementation
     // of putImageData(). (E.g. in Firefox we make two short-lived copies of
@@ -453,7 +453,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
     // because too many putImageData() calls will slow things down.
     //
     // Note: as written, if the last chunk is partial, the putImageData() call
-    // will (conceptually) put pixels past the bounds of the contacts_clavem.  But
+    // will (conceptually) put pixels past the bounds of the canvas.  But
     // that's ok; any such pixels are ignored.
 
     var height = imgData.height, width = imgData.width;
@@ -575,7 +575,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       var thisChunkHeight =
         (i < fullChunks) ? FULL_CHUNK_HEIGHT : partialChunkHeight;
 
-      // Expand the mask so it can be used by the contacts_clavem.  Any required
+      // Expand the mask so it can be used by the canvas.  Any required
       // inversion has already been handled.
       var destPos = 3; // alpha component offset
       for (var j = 0; j < thisChunkHeight; j++) {
@@ -708,7 +708,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
   CanvasGraphics.prototype = {
 
     beginDrawing: function CanvasGraphics_beginDrawing(viewport, transparency) {
-      // For pdfs that use blend modes we have to clear the contacts_clavem else certain
+      // For pdfs that use blend modes we have to clear the canvas else certain
       // blend modes can look wrong since we'd be blending with a white
       // backdrop. The problem with a transparent backdrop though is we then
       // don't get sub pixel anti aliasing on text, so we fill with white if
@@ -848,7 +848,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       // TODO set rendering intent?
     },
     setFlatness: function CanvasGraphics_setFlatness(flatness) {
-      // There's no way to control this with contacts_clavem, but we can safely ignore.
+      // There's no way to control this with canvas, but we can safely ignore.
       // TODO set flatness?
     },
     setGState: function CanvasGraphics_setGState(states) {
@@ -1654,9 +1654,9 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       // TODO non-isolated groups - according to Rik at adobe non-isolated
       // group results aren't usually that different and they even have tools
       // that ignore this setting. Notes from Rik on implmenting:
-      // - When you encounter an transparency group, create a new contacts_clavem with
+      // - When you encounter an transparency group, create a new canvas with
       // the dimensions of the bbox
-      // - copy the content from the previous contacts_clavem to the new contacts_clavem
+      // - copy the content from the previous canvas to the new canvas
       // - draw as usual
       // - remove the backdrop alpha:
       // alphaNew = 1 - (1 - alpha)/(1 - alphaBackdrop) with 'alpha' the alpha
@@ -1685,14 +1685,14 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       var bounds = Util.getAxialAlignedBoundingBox(
                     group.bbox,
                     currentCtx.mozCurrentTransform);
-      // Clip the bounding box to the current contacts_clavem.
+      // Clip the bounding box to the current canvas.
       var canvasBounds = [0,
                           0,
                           currentCtx.canvas.width,
                           currentCtx.canvas.height];
       bounds = Util.intersect(bounds, canvasBounds) || [0, 0, 0, 0];
-      // Use ceil in case we're between sizes so we don't create contacts_clavem that is
-      // too small and make the contacts_clavem at least 1x1 pixels.
+      // Use ceil in case we're between sizes so we don't create canvas that is
+      // too small and make the canvas at least 1x1 pixels.
       var offsetX = Math.floor(bounds[0]);
       var offsetY = Math.floor(bounds[1]);
       var drawnWidth = Math.max(Math.ceil(bounds[2]) - offsetX, 1);
@@ -1716,7 +1716,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
         cacheId, drawnWidth, drawnHeight, true);
       var groupCtx = scratchCanvas.context;
 
-      // Since we created a new contacts_clavem that is just the size of the bounding box
+      // Since we created a new canvas that is just the size of the bounding box
       // we have to translate the group ctx.
       groupCtx.scale(1 / scaleX, 1 / scaleY);
       groupCtx.translate(-offsetX, -offsetY);
@@ -1995,7 +1995,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       var paintWidth = width, paintHeight = height;
       var tmpCanvasId = 'prescale1';
       // Vertial or horizontal scaling shall not be more than 2 to not loose the
-      // pixels during drawImage operation, painting on the temporary contacts_clavem(es)
+      // pixels during drawImage operation, painting on the temporary canvas(es)
       // that are twice smaller in size
       while ((widthScale > 2 && paintWidth > 1) ||
              (heightScale > 2 && paintHeight > 1)) {

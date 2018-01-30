@@ -84,7 +84,7 @@ function getFileName(url) {
 }
 
 /**
- * Returns scale factor for the contacts_clavem. It makes sense for the HiDPI displays.
+ * Returns scale factor for the canvas. It makes sense for the HiDPI displays.
  * @return {Object} The object with horizontal (sx) and vertical (sy)
                     scales. The scaled property is set to false if scaling is
                     not required, true otherwise.

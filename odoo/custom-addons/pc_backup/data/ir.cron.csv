@@ -1,2 +1,0 @@
-id,name,model,function,interval_number,interval_type,"active"
-"backup_cleanup","Backup Cleanup","backup.computer","backup_cleanup",24,hours,"1"

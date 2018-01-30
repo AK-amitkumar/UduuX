@@ -203,7 +203,7 @@ var PDFPageView = (function PDFPageViewClosure() {
     },
 
     cssTransform: function PDFPageView_transform(canvas, redrawAnnotations) {
-      // Scale contacts_clavem, contacts_clavem wrapper, and page container.
+      // Scale canvas, canvas wrapper, and page container.
       var width = this.viewport.width;
       var height = this.viewport.height;
       var div = this.div;
@@ -211,7 +211,7 @@ var PDFPageView = (function PDFPageViewClosure() {
         Math.floor(width) + 'px';
       canvas.style.height = canvas.parentNode.style.height = div.style.height =
         Math.floor(height) + 'px';
-      // The contacts_clavem may have been originally rotated, rotate relative to that.
+      // The canvas may have been originally rotated, rotate relative to that.
       var relativeRotation = this.viewport.rotation - canvas._viewport.rotation;
       var absRotation = Math.abs(relativeRotation);
       var scaleX = 1, scaleY = 1;
@@ -293,7 +293,7 @@ var PDFPageView = (function PDFPageViewClosure() {
       var pdfPage = this.pdfPage;
       var viewport = this.viewport;
       var div = this.div;
-      // Wrap the contacts_clavem so if it has a css transform for highdpi the overflow
+      // Wrap the canvas so if it has a css transform for highdpi the overflow
       // will be hidden in FF.
       var canvasWrapper = document.createElement('div');
       canvasWrapper.style.width = div.style.width;
@@ -316,7 +316,7 @@ var PDFPageView = (function PDFPageViewClosure() {
 
       if (PDFJS.useOnlyCssZoom) {
         var actualSizeViewport = viewport.clone({ scale: CSS_UNITS });
-        // Use a scale that will make the contacts_clavem be the original intended size
+        // Use a scale that will make the canvas be the original intended size
         // of the page.
         outputScale.sx *= actualSizeViewport.width / viewport.width;
         outputScale.sy *= actualSizeViewport.height / viewport.height;
@@ -365,7 +365,7 @@ var PDFPageView = (function PDFPageViewClosure() {
 
       if (outputScale.scaled) {
 //#if !(MOZCENTRAL || FIREFOX)
-        // Used by the mozCurrentTransform polyfill in src/display/contacts_clavem.js.
+        // Used by the mozCurrentTransform polyfill in src/display/canvas.js.
         ctx._transformMatrix = [outputScale.sx, 0, 0, outputScale.sy, 0, 0];
 //#endif
         ctx.scale(outputScale.sx, outputScale.sy);
@@ -519,7 +519,7 @@ var PDFPageView = (function PDFPageViewClosure() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.restore();
 //#if !(MOZCENTRAL || FIREFOX)
-        // Used by the mozCurrentTransform polyfill in src/display/contacts_clavem.js.
+        // Used by the mozCurrentTransform polyfill in src/display/canvas.js.
         ctx._transformMatrix =
           [PRINT_OUTPUT_SCALE, 0, 0, PRINT_OUTPUT_SCALE, 0, 0];
 //#endif
@@ -532,11 +532,11 @@ var PDFPageView = (function PDFPageViewClosure() {
         };
 
         pdfPage.render(renderContext).promise.then(function() {
-          // Tell the printEngine that rendering this contacts_clavem/page has finished.
+          // Tell the printEngine that rendering this canvas/page has finished.
           obj.done();
         }, function(error) {
           console.error(error);
-          // Tell the printEngine that rendering this contacts_clavem/page has failed.
+          // Tell the printEngine that rendering this canvas/page has failed.
           // This will make the print proces stop.
           if ('abort' in obj) {
             obj.abort();

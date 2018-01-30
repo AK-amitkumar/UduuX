@@ -478,7 +478,7 @@ var RequestsOverlay = Widget.extend({
                 ctx.lineJoin = 'round';
                 ctx.lineWidth = 1;
             }),
-            //func: make_context(to_context.contacts_clavem.width, to_context.contacts_clavem.height, function (ctx) {
+            //func: make_context(to_context.canvas.width, to_context.canvas.height, function (ctx) {
             //    ctx.strokeStyle = 'gray';
             //    ctx.lineWidth = to_context.lineWidth;
             //    ctx.translate(0, initial_offset);
@@ -527,7 +527,7 @@ var RequestsOverlay = Widget.extend({
                 surface.rect(estart.timestamp + 0.5, y + 0.5, duration || 1, rect_width);
             }
         }
-        // add each layer to the main contacts_clavem
+        // add each layer to the main canvas
         var keys = ['request', /*'func', */'template', 'sql'];
         for (var j = 0; j < keys.length; ++j) {
             // stroke and fill all rectangles for the relevant surface/context
@@ -602,8 +602,8 @@ var RequestDetails = Widget.extend({
         var payloads = this._payloads = [];
 
         // lazy version: if the render is single-line (!this._open), the extra
-        // content will be discarded when the text contacts_clavem gets pasted onto the
-        // main contacts_clavem. An improvement would be to not do text rendering
+        // content will be discarded when the text canvas gets pasted onto the
+        // main canvas. An improvement would be to not do text rendering
         // beyond the first event for "closed" requests events… then again
         // that makes for more regular rendering profile?
         var text_ctx = make_context(TITLE_WIDTH, height, function (ctx) {
@@ -638,7 +638,7 @@ var RequestDetails = Widget.extend({
             }
         });
         ctx.restore();
-        // add the text layer to the main contacts_clavem
+        // add the text layer to the main canvas
         ctx.drawImage(text_ctx.canvas, 0, 0);
     }
 });

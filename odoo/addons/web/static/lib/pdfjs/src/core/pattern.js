@@ -215,7 +215,7 @@ Shadings.RadialAxial = (function RadialAxialClosure() {
 })();
 
 // All mesh shading. For now, they will be presented as set of the triangles
-// to be drawn on the contacts_clavem and rgb color for each vertex.
+// to be drawn on the canvas and rgb color for each vertex.
 Shadings.Mesh = (function MeshClosure() {
   function MeshStreamReader(stream, context) {
     this.stream = stream;

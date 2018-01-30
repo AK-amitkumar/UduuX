@@ -1,1 +1,0 @@
-import pos_category, restaurant_pos_order

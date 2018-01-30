@@ -328,7 +328,7 @@ function Point(x,y){
  * 
  * Stroke = mousedown + mousemoved * n (+ mouseup but we don't record that as that was the "end / lack of movement" indicator)
  * 
- * Vectors = not classical vectors where numbers indicated shift relative last position. Our vectors are actually coordinates against top left of contacts_clavem.
+ * Vectors = not classical vectors where numbers indicated shift relative last position. Our vectors are actually coordinates against top left of canvas.
  *          we could calc the classical vectors, but keeping the the actual coordinates allows us (through Math.max / min) 
  *          to calc the size of resulting drawing very quickly. If we want classical vectors later, we can always get them in backend code.
  * 
@@ -349,7 +349,7 @@ function Point(x,y){
  *  } // stroke ends
  * ]
  * 
- * we don't care or store stroke width (it's contacts_clavem-size-relative), color, shadow values. These can be added / changed on whim post-capture.
+ * we don't care or store stroke width (it's canvas-size-relative), color, shadow values. These can be added / changed on whim post-capture.
  * 
  */
 function DataEngine(storageObject, context, startStrokeFn, addToStrokeFn, endStrokeFn){
@@ -757,7 +757,7 @@ function jSignatureClass(parent, options, instanceExtensions) {
 
     this.events.publish(apinamespace+'.initializing');
 
-    // these, when enabled, will hover above the sig area. Hence we append them to DOM before contacts_clavem.
+    // these, when enabled, will hover above the sig area. Hence we append them to DOM before canvas.
     this.$controlbarUpper = (function(){
         var controlbarstyle = 'padding:0 !important; margin:0 !important;'+
             'width: 100% !important; height: 0 !important; -ms-touch-action: none;'+
@@ -807,7 +807,7 @@ function jSignatureClass(parent, options, instanceExtensions) {
         //================================
         // mouse down, move, up handlers:
 
-        // shifts - adjustment values in viewport pixels drived from position of contacts_clavem on the page
+        // shifts - adjustment values in viewport pixels drived from position of canvas on the page
         var shiftX
         , shiftY
         , setStartValues = function(){
@@ -915,9 +915,9 @@ function jSignatureClass(parent, options, instanceExtensions) {
     //=========================================
     // various event handlers
 
-    // on mouseout + mouseup contacts_clavem did not know that mouseUP fired. Continued to draw despite mouse UP.
+    // on mouseout + mouseup canvas did not know that mouseUP fired. Continued to draw despite mouse UP.
     // it is bettr than
-    // $contacts_clavem.bind('mouseout', drawEndHandler)
+    // $canvas.bind('mouseout', drawEndHandler)
     // because we don't want to break the stroke where user accidentally gets ouside and wants to get back in quickly.
     eventTokens[apinamespace + '.windowmouseup'] = globalEvents.subscribe(
         apinamespace + '.windowmouseup'
@@ -1109,7 +1109,7 @@ jSignatureClass.prototype.initializeCanvas = function(settings) {
 
     $canvas.appendTo(this.$parent);
 
-    // we could not do this until contacts_clavem is rendered (appended to DOM)
+    // we could not do this until canvas is rendered (appended to DOM)
     if (settings.height === 'ratio') {
         $canvas.css(
             'height'
@@ -1124,7 +1124,7 @@ jSignatureClass.prototype.initializeCanvas = function(settings) {
 
     $canvas.addClass(apinamespace);
 
-    // contacts_clavem's drawing area resolution is independent from contacts_clavem's size.
+    // canvas's drawing area resolution is independent from canvas's size.
     // pixels are just scaled up or down when internal resolution does not
     // match external size. So...
 
@@ -1174,8 +1174,8 @@ var GlobalJSignatureObjectInitializer = function(window){
                 , 500
             );
         })
-        // when mouse exists contacts_clavem element and "up"s outside, we cannot catch it with
-        // callbacks attached to contacts_clavem. This catches it outside.
+        // when mouse exists canvas element and "up"s outside, we cannot catch it with
+        // callbacks attached to canvas. This catches it outside.
         .bind('mouseup.'+apinamespace, function(e){
             globalEvents.publish(
                 apinamespace + '.windowmouseup'
@@ -1233,7 +1233,7 @@ var GlobalJSignatureObjectInitializer = function(window){
         'default':function(data){return this.toDataURL()}
         , 'native':function(data){return data}
         , 'image':function(data){
-            /*this = contacts_clavem elem */
+            /*this = canvas elem */
             var imagestring = this.toDataURL();
             
             if (typeof imagestring === 'string' && 
@@ -1403,7 +1403,7 @@ var GlobalJSignatureObjectInitializer = function(window){
             }
             if ($canvas.length !== 0 && exportplugins.hasOwnProperty(formattype)){              
                 return exportplugins[formattype].call(
-                    $canvas.get(0) // contacts_clavem dom elem
+                    $canvas.get(0) // canvas dom elem
                     , $canvas.data(apinamespace+'.data') // raw signature data as array of objects of arrays
                     , $canvas.data(apinamespace+'.settings')
                 );

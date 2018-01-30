@@ -281,7 +281,7 @@ var PDFViewer = (function pdfViewer() {
         }
 
         // Fetch all the pages since the viewport is needed before printing
-        // starts to create the correct size contacts_clavem. Wait until one page is
+        // starts to create the correct size canvas. Wait until one page is
         // rendered so we don't tie up too many resources early on.
         onePageRendered.then(function () {
           if (!PDFJS.disableAutoFetch) {

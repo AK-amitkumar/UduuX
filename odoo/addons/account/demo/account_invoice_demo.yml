@@ -31,8 +31,7 @@
         price_unit: 25
         quantity: 20
 -
-  !python {model: account.invoice, id: demo_invoice_2}:
-    self.action_invoice_open()
+
 -
   !record {model: account.invoice, id: demo_invoice_3}:
     partner_id: base.res_partner_2

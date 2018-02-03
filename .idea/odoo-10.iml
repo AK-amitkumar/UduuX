@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/odoo/custom-addons/migration_odbc_import" />
+      <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/business_requirement_etherpad" />
+      <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/business_requirement_gap_analysis_task" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

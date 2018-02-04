@@ -3,18 +3,18 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 {
-    "name": "Material/United Backend Theme",
-    "summary": "Odoo 10.0 community backend theme",
-    "version": "10.0.1.0.23",
+    "name": "UNITE Backend Theme",
+    "summary": "Odoo 10.0 backend theme",
+    "version": "2018.0.0.1",
     "category": "Themes/Backend",
-    "website": "http://www.openworx.nl",
+    "website": "http://www.uniteit.ch",
 	"description": """
-		Backend theme for Odoo 10.0 community edition.
+		Unite Backend Theme, based on OpenWorkx Backend
     """,
 	'images':[
         'images/screen.png'
 	],
-    "author": "Openworx",
+    "author": "UNITE",
     "license": "LGPL-3",
     "installable": True,
     "depends": [

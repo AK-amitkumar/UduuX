@@ -4,11 +4,11 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 {
-    "name": "Responsive Backend Theme - Green",
-    "summary": "Odoo 10.0 Community Backend Theme Green Color",
-    "version": "10.0.1.0.0",
+    "name": "UNITE Backend Theme - Green",
+    "summary": "Odoo 10.0 Theme",
+    "version": "10.2018.0.0.1",
     "category": "Themes/Backend",
-    "website": "https://me.repodevs.com",
+    "website": "https://www.uniteit.ch",
 	"description": """
         Backend theme for Odoo 10.0 Community Edition (based on Openworx Theme). More polished to match the green color.
 		The app dashboard is based on the module web_responsive from LasLabs Inc and the theme on Bootstrap United.
@@ -16,7 +16,7 @@
 	'images':[
         'images/screen.png'
 	],
-    "author": "Edi Santoso",
+    "author": "UNITE",
     "license": "LGPL-3",
     "installable": True,
     "depends": [

@@ -9,7 +9,7 @@
         <form id="startView" class="startView">
             <t t-call="coreTemplate">
               <div id="startDiv">
-
+                <input></input>
               </div>
             </t>
         </form>

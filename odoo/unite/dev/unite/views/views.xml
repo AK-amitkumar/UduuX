@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="unite.start">
+      <field name="name">UNITE landing</field>
+      <field name="model">unite.core</field>
+      <field name="arch" type="xml">
+        <form id="startView" class="startView">
+            <t t-call="coreTemplate">
+              <div id="startDiv">
+
+              </div>
+            </t>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="unite.action_window">
+      <field name="name">UNITE window</field>
+      <field name="res_model">unite.core</field>
+      <field name="view_mode">form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="unite.action_server">
+      <field name="name">unite server</field>
+      <field name="model_id" ref="model_unite_unite"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="UNITE" id="unite.menuRoot"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Start" id="unite.menuSub" parent="unite.menuRoot"/>
+     <!--  <menuitem name="Menu 2" id="unite.menu_2" parent="unite.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="unite.menu_1_list" parent="unite.menu_1"
+              action="unite.action_window"/>
+    <menuitem name="Server to list" id="unite" parent="unite.menu_2"
+              action="unite.action_server"/>
+    -->
+  </data>
+</odoo>

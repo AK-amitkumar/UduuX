@@ -1304,6 +1304,11 @@ class _String(Field):
     }
 
     def __init__(self, string=Default, **kwargs):
+        # type: (object, object) -> object
+        """
+
+        :rtype: 
+        """
         # translate is either True, False, or a callable
         if 'translate' in kwargs and not callable(kwargs['translate']):
             kwargs['translate'] = bool(kwargs['translate'])

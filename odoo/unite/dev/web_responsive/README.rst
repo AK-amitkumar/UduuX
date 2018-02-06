@@ -42,7 +42,7 @@ Known issues / Roadmap
 ======================
 
 Note: Data added to the footer ``support_branding`` is not shown while using
-this module.
+this module.New Folder
 
 * Provide full menu search feature instead of just App search
 * Drag drawer from left to open in mobile

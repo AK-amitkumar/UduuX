@@ -21,17 +21,11 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base'
-        ,"unite_backend"
-        ,"autostaging_base"
-        ,"autostaging_project_task"
         ,"business_requirement"
         ,"business_requirement_deliverable"
         ,"business_requirement_deliverable_cost"
-        ,"business_requirement_deliverable_crm"
         ,"business_requirement_deliverable_project"
         ,"business_requirement_deliverable_project_task_categ"
-        ,"business_requirement_deliverable_resource_template"
-        ,"business_requirement_deliverable_resource_template_categ"
         ,"project_model_to_task"
         ,"project_parent"
         ,"project_stage_closed"
@@ -39,9 +33,11 @@
         ,"project_task_category"
         ,"project_task_default_stage"
         ,"project_task_dependency"
-        ,"project_task_order_kanban_state"
-        ,"project_task_search_custom"
-],
+        ,"project_task_add_very_high"
+        ,"project_task_subtask"
+        ,"project_timeline"
+        ,"unite_backend",
+    ],
 
     # always loaded
     'data': [

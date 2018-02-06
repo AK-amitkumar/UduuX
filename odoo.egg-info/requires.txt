@@ -1,4 +1,4 @@
-babel >= 1.0
+babel>=1.0
 decorator
 docutils
 feedparser
@@ -12,7 +12,7 @@ passlib
 pillow
 psutil
 psycogreen
-psycopg2 >= 2.2
+psycopg2>=2.2
 python-chart
 pydot
 pyparsing
@@ -22,7 +22,7 @@ python-dateutil
 python-ldap
 python-openid
 pytz
-pyusb >= 1.0.0b1
+pyusb>=1.0.0b1
 pyyaml
 qrcode
 reportlab

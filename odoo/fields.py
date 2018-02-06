@@ -1709,6 +1709,7 @@ class Selection(Field):
     }
 
     def __init__(self, selection=Default, string=Default, **kwargs):
+        # type: (object, object, object) -> object
         super(Selection, self).__init__(selection=selection, string=string, **kwargs)
 
     @property

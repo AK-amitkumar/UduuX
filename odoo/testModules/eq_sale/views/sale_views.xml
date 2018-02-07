@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+		<record id="eq_sale_quotation_tree" model="ir.ui.view">
+            <field name="name">sale_view_quotation.tree.eq</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree" />
+            <field name="arch" type="xml">
+
+                 <field name="user_id" position="after">
+                        <field name="amount_untaxed"/>
+
+				 </field>
+            </field>
+       	</record>
+
+        <record id="eq_sale_stock_form_view" model="ir.ui.view">
+			<field name="name">eq_sale.sale_stock.form</field>
+			<field name="model">sale.order</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock" />
+			<field name="arch" type="xml">
+				<field name="incoterm" position="after">
+					<field name="eq_delivery_condition_id" />
+				</field>
+			</field>
+		</record>
+
+		<record id="eq_info_optional_form_view" model="ir.ui.view">
+			<field name="name">eq_info_optional.form.view</field>
+			<field name="model">eq_info_optional</field>
+			<field name="arch" type="xml">
+				<form version="7.0">
+                	<group>
+						<field name="eq_info_text" nolabel="1" readonly="1"/>
+					</group>
+					<footer>
+						<button name="action_done" type="object" string="Confirm"/> or <button name="cancel" type="special" string="Cancel"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="eq_sale_form_quote" model="ir.ui.view">
+            <field name="name">hide.preview_button</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="website_quote.sale_order_form_quote"/>
+            <field name="arch" type="xml">
+				<field name="fiscal_position_id" position="after">
+					<field name="eq_show_preview_button" class="oe_inline" groups="base.group_no_one"/>
+
+				</field>
+                <xpath expr="//header/button[@name='open_quotation']" position="replace">
+                    <button name="open_quotation" string="Preview" attrs="{'invisible': [('eq_show_preview_button', '=', False)]}" type="object"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="eq_sale_address_fields_view_order_form_inherit" model="ir.ui.view">
+            <field name="name">eq_sale.address.fields.view.order.form.inherit</field>
+            <field name="model">sale.order</field>
+	    	<field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+            	<!-- deactivate default version of address fields -->
+				<field name="client_order_ref" position="replace"/>
+				<xpath expr="//field[@name='payment_term_id']" position="after">
+					<field name="client_order_ref"/>
+				</xpath>
+
+				<!--<button name="open_quotation" position="replace">-->
+					<!--&lt;!&ndash;<button name="open_quotation" attrs="{'invisible': [('eq_show_preview_button', '=', True)]}"/>&ndash;&gt;-->
+				<!--</button>-->
+
+				<button name="action_confirm" states="draft" position="after">
+	            	<button name="action_button_confirm_optional" states="draft" class="o_sale_confirm" string="Confirm Sale" type="object" groups="base.group_user"/>
+	            </button>
+	            <button name="action_confirm" states="sent" position="after">
+	            	<button name="action_button_confirm_optional" states="sent" class="btn-primary o_sale_confirm"  string="Confirm Sale" type="object" groups="base.group_user"/>
+	            </button>
+
+				<button name="action_confirm" states="draft" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</button>
+				<button name="action_confirm" states="sent" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</button>
+
+                <field name="partner_id" position="attributes">
+                    <attribute name="context">{'search_default_customer':1, 'show_address': 0,'active_model':'sale.order','main_address': True}</attribute>
+                    <attribute name="options">{'always_reload': True}</attribute>
+            		<attribute name="domain">[('customer','=',True), ('is_company', '=', True)]</attribute>
+                </field>
+                <!-- append our version of address fields -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                	<field name="eq_street_house_no" attrs="{'invisible': [('eq_street_house_no', '=', False)]}" />
+               		<field name="eq_zip_city" attrs="{'invisible': [('eq_zip_city', '=', False)]}" />
+               		<field name="eq_country" attrs="{'invisible': [('eq_country', '=', False)]}" />
+                </xpath>
+
+				<field name="note" position="replace"></field>
+				<notebook position="inside">
+                    <page string="Head Text">
+						<field name="eq_use_page_break_after_header"></field>
+                    	<label string="Page break after header text"></label>
+						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
+                    </page>
+                    <page string="Foot Text">
+						<field name="eq_use_page_break_before_footer"></field>
+                    	<label string="Page break before footer text"></label>
+                    	<field name="note" nolabel="1"/>
+                    </page>
+            	</notebook>
+
+                <!-- invoice address -->
+            	<xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+            		<!-- <attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute> -->
+                    <attribute name="context">{'search_default_customer':1, 'show_address': 0,'active_model':'sale.order'}</attribute>
+            	</xpath>
+            	<xpath expr="//field[@name='partner_invoice_id']" position="after">
+            		<field name="eq_invoice_address" groups="sale.group_delivery_invoice_address"/>
+            	</xpath>
+
+            	<!-- shipping address -->
+            	<xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+            		<!-- <attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute> -->
+                    <attribute name="context">{'search_default_customer':1, 'show_address': 0,'active_model':'sale.order'}</attribute>
+            	</xpath>
+            	<xpath expr="//field[@name='partner_shipping_id']" position="after">
+            		<field name="eq_delivery_address" groups="sale.group_delivery_invoice_address"/>
+            	</xpath>
+
+
+				<xpath expr="//field[@name='order_line']/form/group/group/field[@name='tax_id']" position="after">
+            		<field name="eq_delivery_date" />
+            	</xpath>
+
+				<xpath expr="//field[@name='order_line']/tree" position="attributes">
+            		<attribute name="editable"></attribute>
+            	</xpath>
+
+				<xpath expr="//notebook/page/field[@name='order_line']/tree/field[@name='product_id']" position="after">
+					  <field name="eq_optional" invisible="1"/>
+				</xpath>
+
+				<xpath expr="//field[@name='order_line']/form/group" position="inside">
+					<group name="eq_optional">
+	                    <field name="eq_optional"/>
+					</group>
+				</xpath>
+
+				<xpath expr="//field[@name='order_line']/tree" position="attributes">
+					<attribute name="colors">blue:eq_optional!=False</attribute>
+				</xpath>
+
+
+
+            </field>
+	    </record>
+
+
+
+		<record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
+            <field name="name">eq_sale.config.address.product.settings</field>
+            <field name="model">sale.config.settings</field>
+            <field name="inherit_id" ref="sale.view_sales_config"/>
+            <field name="arch" type="xml">
+                <data>
+                	<xpath expr="//group[@name='customers']" position="inside">
+						<label string="Customer search settings [eq_sale]"/>
+						<div>
+							<div>
+								<field name="default_show_address" class="oe_inline"/>
+								<label for="default_show_address" string="Show street and city in the partner search of the saleorder [eq_sale]"/>
+							</div>
+
+							<div>
+								<field name="default_search_only_company" class="oe_inline"/>
+								<label for="default_search_only_company" string="Only search for Companies in the Sale Order/Quotation [eq_sale]"/>
+							</div>
+						</div>
+					</xpath>
+
+
+					<!-- Produkteigenschaften -->
+					<xpath expr="//field[@name='deposit_product_id_setting']" position="after">
+						<label string="Product properties"/>
+	                    <div>
+							<div>
+	                        <field name="group_product_rrp"/>
+							<label for="group_product_rrp"/>
+								</div>
+	                    </div>
+
+					</xpath>
+
+					<!-- Verkaufseigenschaften -->
+					<xpath expr="//group[@name='quotations_sales']" position="inside">
+						<label string="Sale properties"/>
+	                    <div>
+							<div>
+							<field name="default_eq_use_internal_description"/>
+							<label for="default_eq_use_internal_description"/>
+							</div>
+	                    </div>
+						<label string="Show Preview"/>
+	                    <div>
+							<div>
+							<field name="default_eq_show_preview_button"/>
+							<label for="default_eq_show_preview_button"/>
+							</div>
+	                    </div>
+					</xpath>
+
+
+					<!---->
+					<div id="main" position="inside">
+						<group string="Reports">
+							<label for="id" string="Delivery Date"/>
+							<div>
+								<div>
+									<field name="default_show_delivery_date"/>
+									<label for="default_show_delivery_date"/>
+								</div>
+								<div>
+									<field name="default_use_calendar_week"/>
+									<label for="default_use_calendar_week"/>
+								</div>
+							</div>
+						</group>
+					</div>
+                <!--</form>-->
+
+					<div id="main" position="inside">
+					<separator string="Invoices" id="eq_config_invoice_text_separator"/>
+		     		<group id="eq_default_invoice_text">
+                    	<label for="id" string="Texts"/>
+	                	<div>
+	                		<div>
+	                			<field name="eq_use_text_from_order"/>
+	                			<label for="eq_use_text_from_order"/>
+	                        </div>
+	                        <t t-esc="eq_use_text_from_order"></t>
+	                		<div attrs="{'invisible':[('eq_use_text_from_order','=',True)]}">
+	                			<label for="eq_head_text_invoice"/>
+		                        <field name="eq_head_text_invoice"/>
+	                        </div>
+	                        <div attrs="{'invisible':[('eq_use_text_from_order','=',True)]}">
+	                        	<label for="eq_foot_text_invoice"/>
+		                        <field name="eq_foot_text_invoice"/>
+	                		</div>
+	                    </div>
+	                </group>
+					</div>
+
+                </data>
+            </field>
+        </record>
+
+
+	</data>
+</odoo>

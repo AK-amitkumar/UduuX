@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eq_base_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-30 17:46+0000\n"
+"PO-Revision-Date: 2017-05-30 19:49+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 2.0.1\n"
+
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_footer
+msgid "VAT"
+msgstr "USt-IdNr."
+
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_footer
+msgid "Phone:"
+msgstr "Tel:"
+
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_footer
+msgid "<span>CEO:</span> <br/>"
+msgstr "<span>Geschäftsführer:</span> <br/>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_footer
+msgid "<span>Page:</span> <span class=\"page\"/><span> / </span><span class=\"topage\"/>"
+msgstr "<span>Seite:</span> <span class=\"page\"/><span> / </span><span class=\"topage\"/>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Invoice no.</span>"
+msgstr "<span>Rechnungsnr.</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Customer no.</span>"
+msgstr "<span>Kundennr.</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Invoice date</span>"
+msgstr "<span>Rechnungsdatum</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Your reference no.</span>"
+msgstr "<span>Ihre Referenznr.</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Order no.</span>"
+msgstr "<span>Auftragsnr.</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Quotation no.</span>"
+msgstr "<span>Angebotsnr.</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Order date</span>"
+msgstr "<span>Auftragsdatum</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Quotation date</span>"
+msgstr "<span>Angebotssdatum</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Quotation date</span>"
+msgstr "<span>Angebotssdatum</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Delivery note</span>"
+msgstr "<span>Lieferschein</span>"
+
+#. module: eq_base_report
+#: model:ir.ui.view,arch_db:eq_base_report.eq_external_layout_header
+msgid "<span>Date</span>"
+msgstr "<span>Datum</span>"

@@ -1,0 +1,100 @@
+<odoo>
+  <data>
+
+    <!-- Inherit Form View to Modify it-->
+    <record id="uniteEducation" model="ir.ui.view">
+        <field name="name">Education Additonal Fields</field>
+        <field name="model">unite.education</field>
+        <field name="inherit_id" ref="unite__student.view_student_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='student_blood_group']" position="after">
+                <field name="name" type="html">Test</field>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="educationActview" model="ir.actions.act_window">
+        <field name="name">education action view</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">unite.education</field>
+        <field name="view_mode">form</field>
+
+
+    </record>
+
+
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="unite_education_root" name="root_menue_eduaction" sequence="16"/>
+      <!-- This Menu Item Must have a parent -->
+      <menuitem id="unite_education_categ" name="unite education cat" parent="unite_education_root" sequence="16"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="education_act_menu" name="education action menu" parent="unite_education_categ" action="educationActview" sequence="16"/>
+
+
+
+
+
+
+
+
+
+
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="unite_education.list">
+      <field name="name">unite_education list</field>
+      <field name="model">unite_education.unite_education</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="unite_education.action_window">
+      <field name="name">unite_education window</field>
+      <field name="res_model">unite_education.unite_education</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="unite_education.action_server">
+      <field name="name">unite_education server</field>
+      <field name="model_id" ref="model_unite_education_unite_education"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="unite_education" id="unite_education.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="unite_education.menu_1" parent="unite_education.menu_root"/>
+    <menuitem name="Menu 2" id="unite_education.menu_2" parent="unite_education.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="unite_education.menu_1_list" parent="unite_education.menu_1"
+              action="unite_education.action_window"/>
+    <menuitem name="Server to list" id="unite_education" parent="unite_education.menu_2"
+              action="unite_education.action_server"/>
+    -->
+  </data>
+</odoo>

@@ -6,6 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/business_requirement_etherpad" />
       <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/business_requirement_gap_analysis_task" />
       <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/unite/controllers" />
+      <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/unite_backend" />
+      <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/unite_dms" />
+      <excludeFolder url="file://$MODULE_DIR$/odoo/unite/dev/unite_dms/controllers" />
     </content>
     <orderEntry type="jdk" jdkName="Python 2.7.12 (/usr/bin/python2.7)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

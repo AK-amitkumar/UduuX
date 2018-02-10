@@ -36,7 +36,7 @@
         ,"project_task_add_very_high"
         ,"project_task_subtask"
         ,"project_timeline"
-        ,"unite_backend",
+        ,"unite_backend_theme",
     ],
 
     # always loaded

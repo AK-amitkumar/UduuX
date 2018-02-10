@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+    <record id="unite_dms_view" model="ir.ui.view">
+        <field name="name">UNITE</field>
+        <field name="model">unite.dms</field>
+        <field name="arch" type="xml">
+            <form string="unite_view">
+                <t t-call="DMSTreeView"></t>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="unite_dms.action_window">
+      <field name="name">unite_dms window</field>
+      <field name="res_model">unite_dms.unite_dms</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="unite_dms.action_server">
+      <field name="name">unite_dms server</field>
+      <field name="model_id" ref="model_unite_dms_unite_dms"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="unite_dms" id="unite_dms.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="unite_dms.menu_1" parent="unite_dms.menu_root"/>
+    <menuitem name="Menu 2" id="unite_dms.menu_2" parent="unite_dms.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="unite_dms.menu_1_list" parent="unite_dms.menu_1"
+              action="unite_dms.action_window"/>
+    <menuitem name="Server to list" id="unite_dms" parent="unite_dms.menu_2"
+              action="unite_dms.action_server"/>
+    -->
+  </data>
+</odoo>

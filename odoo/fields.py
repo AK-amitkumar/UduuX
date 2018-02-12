@@ -1305,6 +1305,7 @@ class _String(Field):
 
     def __init__(self, string=Default, **kwargs):
         # type: (object, object) -> object
+        # type: (object, object) -> object
         """
 
         :rtype: 

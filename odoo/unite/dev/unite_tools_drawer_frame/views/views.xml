@@ -1,0 +1,51 @@
+<odoo>
+	<data>
+		<!-- explicit list view definition -->
+		<record model="ir.ui.view" id="uniteView_drawerFrame">
+			<field name="name">UNITE Draw</field>
+			<field name="model">unite.tools.drawer.iframe</field>
+			<field name="arch" type="html">
+				<form string="uniteDrawerViewForm" method="post" action="/drawer">
+					<a class="btn btn-primary btn-block">Draw!</a>
+				</form>
+			</field>
+		</record>
+
+		<record id="uniteDrawerWinAct" model="ir.actions.act_url">
+			<field name="name">Unite Drawer Client Action</field>
+			<field name="type">ir.actions.act_url</field>
+			<field name="url">/drawer</field>
+			<field name="target">self</field>
+		</record>
+
+		<!-- server action to the one above -->
+		<!--
+		<record model="ir.actions.server" id="unite_tools_drawer_frame.action_server">
+		  <field name="name">unite_tools_drawerFrame server</field>
+		  <field name="model_id" ref="model_unite_tools_drawer_frame_unite_tools_drawer_frame"/>
+		  <field name="code">
+			action = {
+			  "type": "ir.actions.act_window",
+			  "view_mode": "tree,form",
+			  "res_model": self._name,
+			}
+		  </field>
+		</record>
+		-->
+
+		<!-- Top menu item -->
+		<menuitem name="unite_tools_drawerFrame" id="unite_tools_drawer_frame.menu_root" action="uniteDrawerWinAct"/>
+		<!-- menu categories -->
+		<!--
+		<menuitem name="Menu 1" id="unite_tools_drawer_frame.menu_1" parent="unite_tools_drawer_frame.menu_root"/>
+		<menuitem name="Menu 2" id="unite_tools_drawer_frame.menu_2" parent="unite_tools_drawer_frame.menu_root"/>
+		-->
+		<!-- actions -->
+		<!--
+		<menuitem name="List" id="unite_tools_drawer_frame.menu_1_list" parent="unite_tools_drawer_frame.menu_1"
+				  action="unite_tools_drawer_frame.action_window"/>
+		<menuitem name="Server to list" id="unite_tools_drawer_frame" parent="unite_tools_drawer_frame.menu_2"
+				  action="unite_tools_drawer_frame.action_server"/>
+		-->
+	</data>
+</odoo>

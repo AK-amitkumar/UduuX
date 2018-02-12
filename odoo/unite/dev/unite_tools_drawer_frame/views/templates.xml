@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="uniteDrawer" page="True">
+            <div class="uniteDrawerFrame" id="uniteDrawerFrame">
+                <iframe src="https://uniteit.github.io/models/war/index.html"></iframe>
+            </div>
+        </template>
+    </data>
+</odoo>

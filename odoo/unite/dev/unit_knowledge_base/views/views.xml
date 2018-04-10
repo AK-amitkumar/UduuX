@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="unit_knowledge_base.list">
+      <field name="name">unit_knowledgeBase list</field>
+      <field name="model">unit_knowledge_base.unit_knowledge_base</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="unit_knowledge_base.action_window">
+      <field name="name">unit_knowledgeBase window</field>
+      <field name="res_model">unit_knowledge_base.unit_knowledge_base</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="unit_knowledge_base.action_server">
+      <field name="name">unit_knowledgeBase server</field>
+      <field name="model_id" ref="model_unit_knowledge_base_unit_knowledge_base"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="unit_knowledgeBase" id="unit_knowledge_base.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="unit_knowledge_base.menu_1" parent="unit_knowledge_base.menu_root"/>
+    <menuitem name="Menu 2" id="unit_knowledge_base.menu_2" parent="unit_knowledge_base.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="unit_knowledge_base.menu_1_list" parent="unit_knowledge_base.menu_1"
+              action="unit_knowledge_base.action_window"/>
+    <menuitem name="Server to list" id="unit_knowledge_base" parent="unit_knowledge_base.menu_2"
+              action="unit_knowledge_base.action_server"/>
+    -->
+  </data>
+</odoo>

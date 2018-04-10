@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-# class unit_knowledge_base(models.Model):
-#     _name = 'unit_knowledge_base.unit_knowledge_base'
+# class unite_knowledge_base(models.Model):
+#     _name = 'unite_knowledge_base.unite_knowledge_base'
 
 #     name = fields.Char()
 #     value = fields.Integer()

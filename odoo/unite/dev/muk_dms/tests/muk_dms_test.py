@@ -37,21 +37,21 @@ class DMSTestCase(common.TransactionCase):
     
     def setUp(self):
         super(DMSTestCase, self).setUp()
-        self.root_model = self.env['unite_dms.root'].sudo()
-        self.dir_model = self.env['unite_dms.directory'].sudo()
-        self.file_model = self.env['unite_dms.file'].sudo()
-        self.lock_model = self.env['unite_dms.lock'].sudo()
-        self.database_data_model = self.env['unite_dms.database_data'].sudo()
+        self.root_model = self.env['muk_dms.root'].sudo()
+        self.dir_model = self.env['muk_dms.directory'].sudo()
+        self.file_model = self.env['muk_dms.file'].sudo()
+        self.lock_model = self.env['muk_dms.lock'].sudo()
+        self.database_data_model = self.env['muk_dms.database_data'].sudo()
         
         self.manager = self.ref('base.user_root')
         self.user = self.ref('base.user_demo')
         
-        self.root_model_manager = self.env['unite_dms.root'].sudo(self.manager)
-        self.dir_model_manager = self.env['unite_dms.directory'].sudo(self.manager)
-        self.file_model_manager = self.env['unite_dms.file'].sudo(self.manager)
+        self.root_model_manager = self.env['muk_dms.root'].sudo(self.manager)
+        self.dir_model_manager = self.env['muk_dms.directory'].sudo(self.manager)
+        self.file_model_manager = self.env['muk_dms.file'].sudo(self.manager)
         
-        self.dir_model_user = self.env['unite_dms.directory'].sudo(self.user)
-        self.file_model_user = self.env['unite_dms.file'].sudo(self.user)
+        self.dir_model_user = self.env['muk_dms.directory'].sudo(self.user)
+        self.file_model_user = self.env['muk_dms.file'].sudo(self.user)
 
         self.root_dir = self.dir_model.create({'name': 'Root_Directory'})
         self.root = self.root_model.create({'name': 'Database Settings', 'root_directory': self.root_dir.id, 'save_type': 'database'})

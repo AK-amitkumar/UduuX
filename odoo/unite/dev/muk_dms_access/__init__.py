@@ -28,7 +28,7 @@ def _auto_default_group(cr, registry):
     access_groups = env['muk_dms_access.groups'].search([])
     
     if not access_groups.check_existence():
-        settings = env['unite_dms.settings'].search([])
+        settings = env['muk_dms.settings'].search([])
         category = env['ir.module.category'].search([['name', '=', 'Documents']], limit=1)
         group = env['res.groups'].search([['name', '=', 'User'], ['category_id', '=', category.id]], limit=1)
         access_group = access_groups.create({

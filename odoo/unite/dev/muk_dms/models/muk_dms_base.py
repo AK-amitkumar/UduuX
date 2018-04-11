@@ -145,7 +145,7 @@ class DMSBaseModel(models.BaseModel):
             _logger.info("Locking record ([" + record._name + "] - id: " + 
                           str(record.id) + ")")
             token = hashlib.sha1(os.urandom(128)).hexdigest()
-            lock = self.env['unite_dms.lock'].sudo().create({'locked_by': user and user.name or "System",
+            lock = self.env['muk_dms.lock'].sudo().create({'locked_by': user and user.name or "System",
                                                            'locked_by_ref': user and user._name + ',' + str(user.id) or None,
                                                            'lock_ref': record._name + ',' + str(record.id),
                                                            'token': token})
@@ -157,7 +157,7 @@ class DMSBaseModel(models.BaseModel):
         for record in self:
             _logger.info("Unlocking record ([" + record._name + "] - id: " + 
                           str(record.id) + ")")
-            locks = self.env['unite_dms.lock'].sudo().search([('lock_ref', '=', record._name + ',' + str(record.id))])
+            locks = self.env['muk_dms.lock'].sudo().search([('lock_ref', '=', record._name + ',' + str(record.id))])
             for lock in locks: 
                 lock.sudo().unlink()
         return True
@@ -165,7 +165,7 @@ class DMSBaseModel(models.BaseModel):
     @api.multi
     def is_locked(self):
         self.ensure_one()
-        lock = self.env['unite_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
+        lock = self.env['muk_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
         if lock.id:
             return lock
         return False
@@ -173,7 +173,7 @@ class DMSBaseModel(models.BaseModel):
     @api.multi
     def is_locked_by(self):
         self.ensure_one()
-        lock = self.env['unite_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
+        lock = self.env['muk_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
         if lock.id:
             return lock.locked_by_ref
         return False

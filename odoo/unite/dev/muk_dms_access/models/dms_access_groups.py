@@ -106,14 +106,14 @@ class DocumentGroups(dms_base.DMSModel):
         store=True)
     
     files = fields.Many2many(
-        'unite_dms.file',
+        'muk_dms.file',
         'muk_groups_complete_file_rel',
         'gid',
         'aid',
         readonly=True)
     
     directories = fields.Many2many(
-        'unite_dms.directory',
+        'muk_dms.directory',        
         'muk_groups_complete_directory_rel',
         'gid',
         'aid',

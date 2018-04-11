@@ -100,7 +100,7 @@ class File(base.DMSModel):
     
     def _create_file(self, values, rec_dir, rec_root):
         if rec_root.save_type == root.SAVE_DATABASE:
-            return self.env['unite_dms.database_data'].sudo().create({'file': values['file']})
+            return self.env['muk_dms.database_data'].sudo().create({'file': values['file']})
         return False
     
     def _update_file(self, command, values):
@@ -247,7 +247,7 @@ class File(base.DMSModel):
            
     def _append_values_create(self, values):
         values = super(File, self)._append_values_create(values)
-        rec_dir = self.env['unite_dms.directory'].sudo().browse([values['directory']])
+        rec_dir = self.env['muk_dms.directory'].sudo().browse([values['directory']])
         rec_root = rec_dir.get_root()
         
         if not rec_root.check_existence():

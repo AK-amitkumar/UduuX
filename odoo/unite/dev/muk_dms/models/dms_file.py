@@ -329,7 +329,7 @@ class File(dms_base.DMSModel):
         self.ensure_one()
         self.check_access('create', raise_exception=True)
         if settings.save_type == 'database':
-            return self.env['unite_dms.data_database'].sudo().create({'data': content})
+            return self.env['muk_dms.data_database'].sudo().create({'data': content})
         return None
     
     def _update_reference_content(self, content):

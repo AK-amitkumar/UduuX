@@ -56,10 +56,10 @@ def opened_w_error(filename, mode="r"):
             f.close()
 
 class SystemFileDataModel(models.Model):
-    _name = 'unite_dms.data_system'
+    _name = 'muk_dms.data_system'
     _description = 'System File Data Model'
     
-    _inherit = 'unite_dms.data'
+    _inherit = 'muk_dms.data'
     
     #----------------------------------------------------------
     # Database

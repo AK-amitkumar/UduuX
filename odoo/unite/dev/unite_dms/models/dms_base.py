@@ -172,7 +172,7 @@ class DMSBaseModel(models.BaseModel):
                 raise AccessError(_("The record is locked, so it can't be locked again."))
             else:
                 token = hashlib.sha1(os.urandom(128)).hexdigest()
-                lock = self.env['muk_dms.lock'].sudo().create({
+                lock = self.env['unite_dms.lock'].sudo().create({
                     'locked_by': user and user.name or "System",
                     'locked_by_ref': user and user._name + ',' + str(user.id) or None,
                     'lock_ref': record._name + ',' + str(record.id),
@@ -189,7 +189,7 @@ class DMSBaseModel(models.BaseModel):
     @api.multi
     def unlock(self, refresh=False):
         for record in self:
-            locks = self.env['muk_dms.lock'].sudo().search([('lock_ref', '=', record._name + ',' + str(record.id))])
+            locks = self.env['unite_dms.lock'].sudo().search([('lock_ref', '=', record._name + ',' + str(record.id))])
             for lock in locks: 
                 lock.sudo().unlink()
         if refresh:
@@ -199,7 +199,7 @@ class DMSBaseModel(models.BaseModel):
     @api.multi
     def is_locked(self):
         self.ensure_one()
-        lock = self.env['muk_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
+        lock = self.env['unite_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
         if lock.id:
             return lock
         return False
@@ -207,7 +207,7 @@ class DMSBaseModel(models.BaseModel):
     @api.multi
     def is_locked_by(self):
         self.ensure_one()
-        lock = self.env['muk_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
+        lock = self.env['unite_dms.lock'].sudo().search([('lock_ref', '=', self._name + ',' + str(self.id))], limit=1)
         if lock.id:
             return lock.locked_by_ref
         return False
@@ -326,7 +326,7 @@ class DMSModel(DMSBaseModel):
     _abstract = False
     
 class DMSAccessModel(DMSAbstractModel):
-    _name = 'muk_dms.access'
+    _name = 'unite_dms.access'
     _description = "MuK Documents Access"
     
     #----------------------------------------------------------
@@ -350,7 +350,7 @@ class DMSAccessModel(DMSAbstractModel):
         string="Delete")
         
     locked = fields.Many2one(
-        'muk_dms.lock', 
+        'unite_dms.lock',
         compute='_compute_lock', 
         string="Locked", 
         prefetch=False)

@@ -46,11 +46,11 @@ class Main(http.Controller):
     
     @http.route('/dms/file/preview', auth="user", type='http')
     def preview(self, id, **kw):
-        return self._get_file(request.env['muk_dms.file'].search([('id', '=', id)]))
+        return self._get_file(request.env['unite_dms.file'].search([('id', '=', id)]))
     
     @http.route('/dms/parse/mail', auth="user", type='http')
     def parse_mail(self, id, **kw):
-        file = request.env['muk_dms.file'].search([('id', '=', id)], limit=1)
+        file = request.env['unite_dms.file'].search([('id', '=', id)], limit=1)
         if file and file.mime_type == 'message/rfc822':
             return Response(json.dumps(self._parse_mail(email.message_from_string(base64.b64decode(file.get_file_data())), id)),
                             content_type='application/json;charset=utf-8', status=200)
@@ -59,7 +59,7 @@ class Main(http.Controller):
     
     @http.route('/dms/attachment/preview', auth="user", type='http')
     def preview_attachment(self, id, filename, **kw):
-        file = request.env['muk_dms.file'].search([('id', '=', id)], limit=1)
+        file = request.env['unite_dms.file'].search([('id', '=', id)], limit=1)
         if file and file.mime_type == 'message/rfc822':
             return self._get_attachment(email.message_from_string(base64.b64decode(file.get_file_data())), filename)
         else:
@@ -67,7 +67,7 @@ class Main(http.Controller):
     
     @http.route('/dms/parse/msword', auth="user", type='http')
     def parse_msword(self, id, **kw):
-        file = request.env['muk_dms.file'].search([('id', '=', id)], limit=1)
+        file = request.env['unite_dms.file'].search([('id', '=', id)], limit=1)
         if file and file.file_extension == '.docx':
             return Response(json.dumps(self._parse_msword(file)), content_type='application/json;charset=utf-8', status=200)
         else:
@@ -166,11 +166,11 @@ class Main(http.Controller):
         
     @route('/dms/file/download/<int:id>', auth='user', type="http")
     def download_file(self, id, **kw):
-        return self._get_file(request.env['muk_dms.file'].search([('id', '=', id)]))
+        return self._get_file(request.env['unite_dms.file'].search([('id', '=', id)]))
     
     @route('/dms/file/checkout/<int:id>', auth='user', type="http")
     def checkout_file(self, id, **kw):
-        file = request.env['muk_dms.file'].search([('id', '=', id)], limit=1)
+        file = request.env['unite_dms.file'].search([('id', '=', id)], limit=1)
         if not file.is_locked():
             return self._get_file(file, checkout=True)
         else:
@@ -199,22 +199,22 @@ class Main(http.Controller):
     
     @http.route('/dms/file/update', auth="user", type='http', methods=['GET'])
     def update(self, **kw):
-        return request.render('muk_dms.muk_dms_template_update_form')
+        return request.render('unite_dms.muk_dms_template_update_form')
     
     @http.route('/dms/file/update', auth="user", type='http', methods=['POST'], csrf=False)
     def upload(self, filename, file_base64, token, **kw):
-        lock = request.env['muk_dms.lock'].sudo().search([('token', '=', token)], limit=1)
+        lock = request.env['unite_dms.lock'].sudo().search([('token', '=', token)], limit=1)
         if not lock.id or lock.locked_by_ref != request.env.user or lock.token != token:
              return werkzeug.exceptions.Forbidden()
         file = lock.lock_ref
         file.user_unlock()
         file.write({'filename': filename, 'file': file_base64})
-        return request.render('muk_dms.muk_dms_template_update_form')
+        return request.render('unite_dms.muk_dms_template_update_form')
     
     @http.route('/dms/query/directories', auth="user", type='http')
     def directories(self, query=False, **kw):
         val = []
-        directories = query and request.env['muk_dms.directory'].search([('name', 'ilike', query)]) or request.env['muk_dms.directory'].search([])
+        directories = query and request.env['unite_dms.directory'].search([('name', 'ilike', query)]) or request.env['unite_dms.directory'].search([])
         for directory in directories:
             val.append({'directory_id': directory.id, 'directory_name': directory.name})
         return Response(json.dumps(val), content_type='application/json;charset=utf-8', status=200) 

@@ -11,7 +11,7 @@ MuK Documents is a module to create, manage and view files within Odoo.
 ### Model
 
 ```python
-file = fields.Many2one('muk_dms.file', string='Document')
+file = fields.Many2one(unite_dms, string='Document')
 ```
 
 ### Record (XML)

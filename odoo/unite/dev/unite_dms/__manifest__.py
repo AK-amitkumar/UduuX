@@ -1,57 +1,68 @@
 # -*- coding: utf-8 -*-
+
+###################################################################################
+# 
+#    Copyright (C) 2017 MuK IT GmbH
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+###################################################################################
+
 {
-    'name': "unite_dms",
-
-    'summary': """
-        MUK_DMS and Odoo Documents combination by UNITE""",
-
-    'description': """
-        MUK_DMS and Odoo Documents combination by UNITE
+    "name": "MuK Documents",
+    "summary": """Document Management System""",
+    "description": """ 
+        
     """,
-
-    'author': "UNITE",
-    'contributors': 'Nik Istrefi',
-    'website': "http://www.uniteit.ch",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
-    # for the full list
-    'category': 'UNITE',
-    'version': '2018.10.0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': [
-        'muk_attachment_lobject',
-        'muk_dms',
-        'muk_dms_access',
-        'muk_dms_field',
-        'muk_dms_file',
-        'muk_fields_lobject',
-        'muk_web_client',
-        'muk_web_client_notification',
-        'muk_web_client_refresh',
-        'muk_web_export_attachment',
-        'muk_web_glyphicons',
-        'muk_web_preview',
-        'muk_web_preview_attachment',
-        'muk_web_preview_audio',
-        'muk_web_preview_csv',
-        'muk_web_preview_image',
-        'muk_web_preview_mail',
-        'muk_web_preview_markdown',
-        'muk_web_preview_msoffice',
-        'muk_web_preview_text',
-        'muk_web_preview_vector',
-        'muk_web_preview_video',
-        'muk_web_view_hierarchy',
+    "version": '10.0.1.2.0',   
+    "category": 'Document Management',   
+    "license": "AGPL-3",
+    "website": "http://www.mukit.at",
+    "author": "MuK IT",
+    "contributors": [
+        "Mathias Markl <mathias.markl@mukit.at>",
+        "Kerrim Abdelhamed <kerrim.adbelhamed@mukit.at>",
     ],
-
-    # always loaded
-    'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+    "depends": [
+        "muk_web_preview",
+        "muk_web_client_refresh",
     ],
+    "data": [
+        "security/dms_security.xml",
+        "security/ir.model.access.csv",
+        "template/assets.xml",
+        "views/dms_menu.xml",
+        "views/dms_actions.xml",
+        "views/dms_settings_view.xml",
+        "views/dms_directory_view.xml",
+        "views/dms_file_view.xml",
+        "views/dms_data_view.xml",
+        "views/dms_lock_view.xml",
+    ],
+    "demo": [
+    ],
+    "qweb": [
+        "static/src/xml/*.xml",
+    ],
+    "images": [
+        'static/description/banner.png'
+    ],
+    "external_dependencies": {
+        "python": [],
+        "bin": [],
+    },
+    "application": True,
+    "installable": True,
+    
 }
-
-

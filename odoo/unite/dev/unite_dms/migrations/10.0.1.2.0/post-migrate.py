@@ -19,4 +19,23 @@
 #
 ###################################################################################
 
-from . import main
+import base64
+
+from odoo import api, SUPERUSER_ID
+
+def migrate(cr, version):
+    if not version:
+        return
+    
+    if version == "10.0.1.1.0":
+        env = api.Environment(cr, SUPERUSER_ID, {})
+        
+        files = env["unite_dms.file"].search([("reference", "like", "data_database")])
+        for file in files:
+             file.trigger_computation(["extension","mimetype","index_content"])
+             file.size = len(base64.b64decode(file.with_context({}).content))
+             
+        settingslist = env["unite_dms.settings"].search([("save_type", "=", "database")])
+        for settings in settingslist:
+            for root_directory in settings.root_directories:
+                root_directory.trigger_computation(["path", "settings"])

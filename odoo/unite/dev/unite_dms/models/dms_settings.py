@@ -30,7 +30,7 @@ from odoo.addons.muk_dms.models import dms_base
 _logger = logging.getLogger(__name__)
 
 class Settings(dms_base.DMSModel):
-    _name = 'muk_dms.settings'
+    _name = 'unite_dms.settings'
     _description = "MuK Documents Settings"
 
     #----------------------------------------------------------
@@ -59,7 +59,7 @@ class Settings(dms_base.DMSModel):
         help="Indicates if files and directories should be automatically locked while system operations take place.")
     
     root_directories = fields.One2many(
-        'muk_dms.directory', 
+        'unite_dms.directory',
         'settings',
          string="Directories",
          copy=False, 

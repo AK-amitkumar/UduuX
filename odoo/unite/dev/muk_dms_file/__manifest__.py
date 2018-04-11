@@ -35,7 +35,7 @@
         "Kerrim Abdelhamed <kerrim.adbelhamed@mukit.at>",
     ],
     "depends": [
-        "muk_dms",
+        "unite_dms",
     ],
     "data": [
         "security/ir.model.access.csv",

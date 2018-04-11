@@ -29,7 +29,7 @@ from odoo.exceptions import ValidationError, AccessError
 _logger = logging.getLogger(__name__)
 
 class DataModel(models.AbstractModel):
-    _name = 'muk_dms.data'
+    _name = 'unite_dms.data'
     _description = 'Base Data Model'
     
     @abc.abstractmethod
@@ -45,10 +45,10 @@ class DataModel(models.AbstractModel):
         """Updated the data object."""
         
 class DatabaseDataModel(models.Model):
-    _name = 'muk_dms.data_database'
+    _name = 'unite_dms.data_database'
     _description = 'Database Data Model'
     
-    _inherit = 'muk_dms.data'
+    _inherit = 'unite_dms.data'
     
     #----------------------------------------------------------
     # Database

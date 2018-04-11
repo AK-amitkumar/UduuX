@@ -24,7 +24,7 @@
 from odoo import models, fields
 
 class DMSConfigSettings(models.TransientModel):
-    _name = 'muk_dms.config.settings'
+    _name = 'unite_dms.config.settings'
     _inherit = 'res.config.settings'
 
     module_muk_dms_file = fields.Boolean('File System Support',

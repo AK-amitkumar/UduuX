@@ -35,7 +35,7 @@ _logger = logging.getLogger(__name__)
 SAVE_DATABASE = "database"
 
 class Root(base.DMSModel):
-    _name = 'muk_dms.root'
+    _name = 'unite_dms.root'
     _description = "Root"
     
     _inherit = ['mail.thread']
@@ -50,7 +50,7 @@ class Root(base.DMSModel):
                                  help="The save type is used to determine how a file is saved to the system.",
                                  required=True)
     
-    root_directory = fields.Many2one('muk_dms.directory', string="Directory", required=True)
+    root_directory = fields.Many2one('unite_dms.directory', string="Directory", required=True)
     
     is_created = fields.Boolean("Record is created", readonly=True)
     

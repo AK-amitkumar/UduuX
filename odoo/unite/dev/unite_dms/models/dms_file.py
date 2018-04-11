@@ -39,10 +39,10 @@ _logger = logging.getLogger(__name__)
 _img_path = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static/src/img'))
 
 class File(dms_base.DMSModel):
-    _name = 'muk_dms.file'
+    _name = 'unite_dms.file'
     _description = "File"
     
-    _inherit = 'muk_dms.access'
+    _inherit = 'unite_dms.access'
     
     #----------------------------------------------------------
     # Database
@@ -53,7 +53,7 @@ class File(dms_base.DMSModel):
         required=True)
     
     settings = fields.Many2one(
-        'muk_dms.settings', 
+        'unite_dms.settings',
         string="Settings",
         store=True,
         auto_join=True,
@@ -67,12 +67,12 @@ class File(dms_base.DMSModel):
         inverse='_inverse_content')
     
     reference = fields.Reference(
-        selection=[('muk_dms.data', _('Data'))],
+        selection=[('unite_dms.data', _('Data'))],
         string="Data Reference", 
         readonly=True)
     
     directory = fields.Many2one(
-        'muk_dms.directory', 
+        'unite_dms.directory',
         string="Directory",
         ondelete='restrict',  
         auto_join=True,
@@ -329,7 +329,7 @@ class File(dms_base.DMSModel):
         self.ensure_one()
         self.check_access('create', raise_exception=True)
         if settings.save_type == 'database':
-            return self.env['muk_dms.data_database'].sudo().create({'data': content})
+            return self.env['unite_dms.data_database'].sudo().create({'data': content})
         return None
     
     def _update_reference_content(self, content):

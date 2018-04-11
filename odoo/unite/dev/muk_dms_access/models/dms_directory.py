@@ -28,7 +28,7 @@ from odoo.addons.muk_dms.models import dms_base
 
 class AccessDirectory(dms_base.DMSModel):
     
-    _inherit = 'muk_dms.directory'
+    _inherit = 'unite_dms.directory'
     
     #----------------------------------------------------------
     # Functions

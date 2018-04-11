@@ -34,7 +34,7 @@ from . import muk_dms_base as base
 _logger = logging.getLogger(__name__)
 
 class Directory(base.DMSModel):
-    _name = 'muk_dms.directory'
+    _name = 'unite_dms.directory'
     _description = "Directory"
     
     _parent_store = True
@@ -42,7 +42,7 @@ class Directory(base.DMSModel):
     _parent_order = 'parent_left'
     _order = 'parent_left'
 
-    _inherit = ['muk_dms.access', 'mail.thread']
+    _inherit = ['unite_dms.access', 'mail.thread']
     
     #----------------------------------------------------------
     # Database
@@ -50,15 +50,15 @@ class Directory(base.DMSModel):
     
     name = fields.Char(string="Name", required=True)
 
-    parent_id = fields.Many2one('muk_dms.directory', string="Parent", index=True,
+    parent_id = fields.Many2one('unite_dms.directory', string="Parent", index=True,
                              help="Every directory has a parent accept the root.")
-    child_id = fields.One2many('muk_dms.directory', 'parent_id', string="Subdirectories")
+    child_id = fields.One2many('unite_dms.directory', 'parent_id', string="Subdirectories")
     parent_left = fields.Integer(string='Left Parent', index=True)
     parent_right = fields.Integer(string='Right Parent', index=True)
         
-    files = fields.One2many('muk_dms.file', 'directory', string="Files")
+    files = fields.One2many('unite_dms.file', 'directory', string="Files")
     
-    root = fields.Many2one('muk_dms.root', string="Root", store=False, readonly=True)
+    root = fields.Many2one('unite_dms.root', string="Root", store=False, readonly=True)
     
     path_text = fields.Char(compute='_compute_path_text', string="Path")
     path_object = fields.Char(compute='_compute_path_object', string="Path")
@@ -108,16 +108,16 @@ class Directory(base.DMSModel):
             size += child.get_size()
         return size
     
-    @api.returns('muk_dms.directory')
+    @api.returns('unite_dms.directory')
     def find_root_directory(self):
         if self.is_root_direcotry():
             return self 
         else:
             return self.parent_id.find_root_directory()
         
-    @api.returns('muk_dms.root')
+    @api.returns('unite_dms.root')
     def get_root(self):
-        return self.env['muk_dms.root'].sudo().search([['root_directory', '=',
+        return self.env['unite_dms.root'].sudo().search([['root_directory', '=',
                                                             self.find_root_directory().id]], limit=1)
     
     def notify_change(self, change, values):

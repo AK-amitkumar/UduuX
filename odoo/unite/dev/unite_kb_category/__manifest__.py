@@ -1,26 +1,25 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "unite_1",
+    'name': "Unite Knowledge Base - Category Extension",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Extends Unite Knowledge Base with Category Table and logic""",
 
     'description': """
-        Long description of module's purpose
+        Extends Unite Knowledge Base with Category Table and logic
     """,
 
-    'author': "Arlind",
-    'website': "http://www.yourcompany.com",
+    'author': "UNITE",
+    'website': "https://www.uniteit.ch",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
+    'category': 'Tools',
+    'version': '2018.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['unite_kb'],
 
     # always loaded
     'data': [
@@ -28,10 +27,6 @@
         'views/views.xml',
         'views/templates.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
-    'application': True,
+    'application': False,
     'installable': True,
 }

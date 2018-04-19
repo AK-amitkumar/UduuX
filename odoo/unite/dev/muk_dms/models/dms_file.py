@@ -32,7 +32,7 @@ from odoo.tools import ustr
 from odoo.tools.mimetypes import guess_mimetype
 from odoo.exceptions import ValidationError, AccessError
 
-from odoo.addons.muk_dms.models import dms_base
+from odoo.unite.dev.muk_dms.models import dms_base
 
 _logger = logging.getLogger(__name__)
 

@@ -1306,6 +1306,7 @@ class _String(Field):
     def __init__(self, string=Default, **kwargs):
         # type: (object, object) -> object
         # type: (object, object) -> object
+        # type: (object, object) -> object
         """
 
         :rtype: 
@@ -1921,6 +1922,7 @@ class Many2one(_Relational):
     }
 
     def __init__(self, comodel_name=Default, string=Default, **kwargs):
+        # type: (object, object, object) -> object
         super(Many2one, self).__init__(comodel_name=comodel_name, string=string, **kwargs)
 
     def _setup_attrs(self, model, name):

@@ -11,7 +11,6 @@ from odoo import models, fields, api
 
 class UniteKBCategory(models.Model):
     _name = 'unite.kb.category'
-    _rec_name = 'uniteKbCategory'
     _description = 'The Category Extension of Unite Knowledge Base'
 
     categoryTitle = fields.Char(string="Category Title")

@@ -21,18 +21,15 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        'muk_attachment_lobject',
-        'muk_dms',
         'muk_dms_access',
         'muk_dms_field',
         'muk_dms_file',
+        'muk_attachment_lobject',
         'muk_fields_lobject',
         'muk_web_client',
         'muk_web_client_notification',
-        'muk_web_client_refresh',
         'muk_web_export_attachment',
         'muk_web_glyphicons',
-        'muk_web_preview',
         'muk_web_preview_attachment',
         'muk_web_preview_audio',
         'muk_web_preview_csv',

@@ -21,7 +21,7 @@
 
 from odoo import models, fields, api
 
-from odoo.addons.muk_dms.models import dms_base
+from odoo.unite.dev.muk_dms.models import dms_base
 
 class DocumentGroups(dms_base.DMSModel):
     _name = 'muk_dms_access.groups'

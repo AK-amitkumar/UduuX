@@ -35,7 +35,7 @@ from odoo.exceptions import AccessError, ValidationError
 from odoo.tools import config, human_size, ustr, html_escape
 from odoo.tools.mimetypes import guess_mimetype
 
-from odoo.addons.muk_fields_lobject import fields as lobject_fields
+from odoo.unite.dev.muk_fields_lobject import fields as lobject_fields
 
 _logger = logging.getLogger(__name__)
 

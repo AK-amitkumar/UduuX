@@ -10,39 +10,14 @@
 from odoo import models, fields, api
 
 
-class UniteKBCategory(models.Model):
-    _name = 'unite.kb.category'
-    _description = 'The Category Extension of Unite Knowledge Base'
+class uniteKBCategory(models.Model):
+	_inherit = 'unite.kb'
+	_description = 'The Category Extension of Unite Knowledge Base'
 
-    categoryTitle = fields.Char(string="Category Title")
-    subCategory = fields.Many2one(comodel_name="unite.kb.category", string="Sub-Category")
-    masterCategory = fields.Many2one(comodel_name="unite.kb.category", string="Master-Category")
-    customerFriendly = fields.Boolean(string="Customer Friendly")
-    catTags = fields.Many2one(comodel_name="unite.kb.category")
-    catOwner = fields.Many2one(comodel_name="hr")
-
-    @api.one
-    def set_categoryTitle(self):
-        self.categoryTitle = self
-
-    @api.one
-    def set_subCategory(self):
-        self.subCategory = self
-
-    @api.one
-    def set_masterCategory(self):
-        self.masterCategory = self
-
-    @api.one
-    def set_customerFriendly(self):
-        self.customerFriendly = self
-
-    @api.one
-    def set_catTags(self):
-        self.catTags = self
-
-    @api.one
-    def set_catOwner(self):
-        self.catOwner = self
-
-    
+	categoryTitle = fields.Char(string="Category Title")
+	subCategory = fields.Many2one("unite.kb", string="Sub-Category")
+	masterCategory = fields.Many2one("unite.kb", string="Master-Category")
+	customer = fields.Many2one('res.partner', string="Customer")
+	forCustomer = fields.Boolean(string="isPublic")
+	catTags = fields.Many2one("unite.kb")
+	catOwner = fields.Many2one('res.users', 'Current User', default=lambda self: self.env.user)

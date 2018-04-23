@@ -1,0 +1,47 @@
+
+upython:S107"[Method "_read_group_fill_results" has 8 parameters, which is greater than the 7 authorized.(†ü‡ÿÿÿÿÿ
+gpython:S107"MMethod "read_group" has 8 parameters, which is greater than the 7 authorized.(§Ó‘àÿÿÿÿÿ
+lpython:S107"RMethod "_read_group_raw" has 8 parameters, which is greater than the 7 authorized.(é³Êºşÿÿÿÿ
+gpython:S1134"LTake the required action to fix the issue indicated by this "FIXME" comment.(„Éßèüÿÿÿÿ
+9python:S125"Remove this commented out code.(‰¿¤°şÿÿÿÿ
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(ªŸ¸€şÿÿÿÿ
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¨­ã­
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 60 to the 15 allowed.(„×š¤
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÌö
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(†­³Òøÿÿÿÿ
+ipython:S3776"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ÿÍg
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(ªğÖøÿÿÿÿ
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ó‰İüÿÿÿÿ
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(—šş˜
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(é³Êºşÿÿÿÿ
+ppython:S3776"URefactor this function to reduce its Cognitive Complexity from 251 to the 15 allowed.(„Â–ùÿÿÿÿ
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(æÙİ¨ÿÿÿÿÿ
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¾
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(»Œ­°
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(²’û¢úÿÿÿÿ
+kpython:S3776"URefactor this function to reduce its Cognitive Complexity from 101 to the 15 allowed.(’·Ë¹
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(©åÖü
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 59 to the 15 allowed.(°úï´şÿÿÿÿ
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(˜°Êüÿÿÿÿÿ
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(‹ˆÈ”üÿÿÿÿ
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(Ê©Ç
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(×¡­¢üÿÿÿÿ
+jpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ãË°Ê
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(“×¬ÿÿÿÿÿ
+opython:S3776"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(¸”Í„øÿÿÿÿ
+Dpython:S1481".Remove the unused local variable "date_found".(áØõĞ
+lpython:S117"WRename this local variable "Fields" to match the regular expression ^[_a-z][a-z0-9_]*$.(º–Ş°
+opython:S117"[Rename this local variable "ModelClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ·İ
+xpython:S117"^Rename this local variable "IrModelFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(´Œ»ğÿÿÿÿÿ
+tpython:S117"ZRename this local variable "ModelData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ¸¿Òşÿÿÿÿ
+opython:S117"URename this local variable "View" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠæäÇÿÿÿÿÿ
+spython:S117"YRename this local variable "IrValues" to match the regular expression ^[_a-z][a-z0-9_]*$.(üìÄğıÿÿÿÿ
+jpython:S117"URename this local variable "Data" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğñŒ¹
+kpython:S117"WRename this local variable "Values" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úá¡$
+upython:S117"[Rename this local variable "Attachment" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã•öşÿÿÿÿ
+opython:S117"URename this local variable "Rule" to match the regular expression ^[_a-z][a-z0-9_]*$.(°–˜ıÿÿÿÿ
+qpython:S117"\Rename this local variable "Translation" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹‹˜ÿ
+Epython:S1066"/Merge this if statement with the enclosing one.(²¸Å“
+Jpython:S1066"/Merge this if statement with the enclosing one.( ØŒéüÿÿÿÿ
+Jpython:S1066"/Merge this if statement with the enclosing one.(£ºûÇÿÿÿÿÿ
+Dpython:S1066"/Merge this if statement with the enclosing one.(²ç¾F

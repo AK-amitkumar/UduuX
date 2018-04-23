@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_unite_kb_tags_unite_kb_tags,unite_kb_tags.unite_kb_tags,model_unite_kb_tags_unite_kb_tags,,1,0,0,0

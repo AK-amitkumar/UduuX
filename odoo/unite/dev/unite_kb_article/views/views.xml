@@ -5,7 +5,7 @@
             <field name="name">unite_kb list</field>
             <field name="model">unite.kb.article</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree string="Article List" class="artTree" id="artTree">
                     <field name="ArtTitle"/>
                     <field name="Author"/>
                     <field name="CreatedAt"/>
@@ -25,12 +25,12 @@
             <field name="name">unite_kb form</field>
             <field name="model">unite.kb.article</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="New Article" id="newArt" class="newArt">
                     <header>
                         <!--<field name="Status" widget="statusbar"
                 statusbar_visible="draft,sent,progress,invoiced,done"/>-->
                     </header>
-                    <sheet class="u_sheet" string="mainSheet" name="mainSheet">
+                    <sheet class="artSheet" string="artSheet" name="artSheet" id="artSheet">
                         <a>Title</a>
                         <h1>
                             Title
@@ -52,11 +52,19 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="unite_kb_article">
-	<field name="name">Unite Knowledge Base</field>
+        <record model="ir.actions.act_window" id="unite_kb_article_form">
+            <field name="name">Unite Knowledge Base</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">unite.kb.article</field>
-            <!--<field name="res_id" ref="mainTree"/>-->
+            <field name="view_mode">form</field>
+            <field name="res_id" ref="unite_kb_form"/>
+        </record>
+        <record model="ir.actions.act_window" id="unite_kb_article_list">
+            <field name="name">Unite Knowledge Base</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">unite.kb.article</field>
+            <field name="view_mode">tree</field>
+            <field name="res_id" ref="unite_kb_list"/>
         </record>
 
     </data>

@@ -2,17 +2,20 @@
 /***** Services *******
 /*********************/
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-section{
-	padding: 60px 0;
+.mainForm {
+    padding:0px;
 }
-section .section-title{
+.section{
+	padding: 60px 60px;
+}
+.section .section-title{
 	text-align:center;
 	color:#007b5e;
 	margin-bottom:50px;
 	text-transform:uppercase;
 }
 #what-we-do{
-	background:#ffffff;
+	background:#f0eeee;
 }
 #what-we-do .card{
 	padding: 1rem!important;

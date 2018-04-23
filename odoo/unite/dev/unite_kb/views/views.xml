@@ -1,81 +1,133 @@
 <odoo>
-  <data>
+    <data>
 
-    <record model="ir.ui.view" id="unite_kb_list">
-      <field name="name">unite_kb list</field>
-      <field name="model">unite.kb</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="ArtTitle"/>
-          <field name="Author"/>
-          <field name="CreatedAt"/>
-          <field name="Description"/>
-          <field name="Version"/>
-          <field name="Status"/>
-          <field name="LastEditedBy"/>
-          <field name="Problem"/>
-          <field name="Symptoms"/>
-          <field name="Solutions"/>
-          <field name="Inform"/>
-        </tree>
-      </field>
-    </record>
+        <record model="ir.ui.view" id="unite_kb_main">
+            <field name="name">unite.kb.startPage</field>
+            <field name="model">unite.kb</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--<field name="Status" widget="statusbar"
+                statusbar_visible="draft,sent,progress,invoiced,done"/>-->
+                    </header>
+                    <sheet class="u_sheet" string="mainSheet" name="mainSheet">
+                        <div id="what-we-do">
+                            <div class="container-fluid">
+                                <h2 class="section-title mb-2 h1"></h2>
+                                <p class="text-center text-muted h5">Having and managing a correct marketing strategy is
+                                    crucial in a fast moving market.
+                                </p>
+                                <div class="row mt-5">
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card">
+                                            <div class="card-block block-1">
+                                                <h3 class="card-title">Special title</h3>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.
+                                                </p>
+                                                <a href="javascript:void();" title="Read more" class="read-more">Read
+                                                    more
+                                                    <i class="fa fa-angle-double-right ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card">
+                                            <div class="card-block block-2">
+                                                <h3 class="card-title">Special title</h3>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.
+                                                </p>
+                                                <a href="javascript:void();" title="Read more" class="read-more">Read
+                                                    more
+                                                    <i class="fa fa-angle-double-right ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card">
+                                            <div class="card-block block-3">
+                                                <h3 class="card-title">Special title</h3>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.
+                                                </p>
+                                                <a href="javascript:void();" title="Read more" class="read-more">Read
+                                                    more
+                                                    <i class="fa fa-angle-double-right ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card">
+                                            <div class="card-block block-4">
+                                                <h3 class="card-title">Special title</h3>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.
+                                                </p>
+                                                <a href="javascript:void();" title="Read more" class="read-more">Read
+                                                    more
+                                                    <i class="fa fa-angle-double-right ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card">
+                                            <div class="card-block block-5">
+                                                <h3 class="card-title">Special title</h3>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.
+                                                </p>
+                                                <a href="javascript:void();" title="Read more" class="read-more">Read
+                                                    more
+                                                    <i class="fa fa-angle-double-right ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card">
+                                            <div class="card-block block-6">
+                                                <h3 class="card-title">Special title</h3>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.
+                                                </p>
+                                                <a href="javascript:void();" title="Read more" class="read-more">Read
+                                                    more
+                                                    <i class="fa fa-angle-double-right ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <record model="ir.ui.view" id="unite_kb_form">
-      <field name="name">unite_kb form</field>
-      <field name="model">unite.kb</field>
-      <field name="arch" type="xml">
-        <form>
-          <header>
-            <field name="Status" widget="statusbar"
-    statusbar_visible="draft,sent,progress,invoiced,done"/>
-          </header>
-          <field name="ArtTitle"/>
-          <field name="Author"/>
-          <field name="CreatedAt"/>
-          <field name="Description"/>
-          <field name="Version"/>
-          <field name="Status"/>
-          <field name="LastEditedBy"/>
-          <field name="Problem"/>
-          <field name="Symptoms"/>
-          <field name="Solutions"/>
-          <field name="Inform"/>
-        </form>
-      </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="unite_kb_action_window">
-      <field name="name">unite_kb window</field>
-      <field name="res_model">unite.kb</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-<!--
-
-    <record model="ir.actions.server" id="unite_kb_action_server">
-      <field name="name">unite_kb server</field>
-      <field name="model_id" ref="unite.kb"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-
--->
-
-    <menuitem name="unite_kb" id="unite_kb_menu_root"/>
+        <record model="ir.actions.act_window" id="unite_kb_action_window">
+            <field name="name">Start Page</field>
+            <field name="res_model">unite.kb</field>
+            <field name="view_mode">form</field>
+        </record>
 
 
-    <menuitem name="Menu 1" id="unite_kb_menu_1" parent="unite_kb_menu_root"/>
+        <menuitem name="UNITE Knowledge Base" id="unite_kb_menu_root" action="unite_kb_action_window"/>
 
+        <!--<menuitem name="Articles" id="unite_kb_articles" parent="unite_kb_menu_root"
+                  action="unite_kb_article.unite_kb_article"/>
+        <menuitem name="Categories" id="unite_kb_categories" parent="unite_kb_menu_root"/>
+        <menuitem name="Overview" id="unite_kb_cat_list" parent="unite_kb_categories"
+                  action="unite_kb_category.ukb_view_treeAction"/>
+        <menuitem name="New" id="unite_kb_cat_modalList" parent="unite_kb_categories"
+                  action="unite_kb_category.ukb_view_treeAction_Modal"/>-->
 
-
-    <menuitem name="List" id="unite_kb_enu_1_list" parent="unite_kb_menu_1"
-              action="unite_kb_action_window"/>
-
-  </data>
+    </data>
 </odoo>

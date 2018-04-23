@@ -99,7 +99,7 @@
 
 		<record id="mainTree" model="ir.ui.view">
 			<field name="name">unite.kb.cat.maintree</field>
-			<field name="model">unite.kb</field>
+			<field name="model">unite.kb.category</field>
 			<field name="arch" type="xml">
 
 				<tree string="Categories" editable="bottom">
@@ -118,8 +118,9 @@
 		<record id="ukb_view_treeAction" model="ir.actions.act_window">
 			<field name="name">Unite Knowledge Base</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">unite.kb</field>
+			<field name="res_model">unite.kb.category</field>
 			<field name="view_mode">tree</field>
+			<field name="res_id" ref="mainTree"/>
 			<field name="help" type="html">
 				<p class="oe_view_nocontent_create">
 					<!-- Add Text Here -->
@@ -133,8 +134,9 @@
 		<record id="ukb_view_treeAction_Modal" model="ir.actions.act_window">
 			<field name="name">Unite Knowledge Base</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">unite.kb</field>
+			<field name="res_model">unite.kb.category</field>
 			<field name="view_mode">tree</field>
+			<field name="res_id" ref="mainTree"/>
 			<field name="target">new</field>
 			<field name="help" type="html">
 				<p class="oe_view_nocontent_create">
@@ -147,12 +149,10 @@
 		</record>
 		<!-- Top menu item -->
 
-		<menuitem name="UNITE KB Categories" id="ukbc_menu_root"/>
 
 		<!-- menu categories -->
 
-		<menuitem name="Categories" id="ukbc_menu_1" parent="ukbc_menu_root" action="ukb_view_treeAction"/>
-		<menuitem name="List-Modal" id="ukbc_menu_2" parent="ukbc_menu_root" action="ukb_view_treeAction_Modal"/>
+
 
 		<!--
 		<menuitem name="Menu 2" id="unite_kb_category.menu_2" parent="unite_kb_category.menu_root"/>

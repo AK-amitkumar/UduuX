@@ -16,7 +16,7 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Tools',
+    'category': 'Knowledge',
     'version': '2018.0.1',
 
     # any module necessary for this one to work correctly
@@ -28,10 +28,12 @@
         'views/views.xml',
         'views/templates.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+    'css': ['static/src/css/style.css'],
+	'js': [ 'static/src/css/script.js' ],
+	'images': [ 'images/src/img/image.png' ],
+
+	'icon': 'static/src/img/icon.png',
+
     'application': True,
     'installable': True,
 }

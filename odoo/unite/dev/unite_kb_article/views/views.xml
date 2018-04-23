@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="unite_kb_list">
+            <field name="name">unite_kb list</field>
+            <field name="model">unite.kb.article</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ArtTitle"/>
+                    <field name="Author"/>
+                    <field name="CreatedAt"/>
+                    <field name="Description"/>
+                    <field name="Version"/>
+                    <field name="Status"/>
+                    <field name="LastEditedBy"/>
+                    <field name="Problem"/>
+                    <field name="Symptoms"/>
+                    <field name="Solutions"/>
+                    <field name="Inform"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="unite_kb_form">
+            <field name="name">unite_kb form</field>
+            <field name="model">unite.kb.article</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--<field name="Status" widget="statusbar"
+                statusbar_visible="draft,sent,progress,invoiced,done"/>-->
+                    </header>
+                    <sheet class="u_sheet" string="mainSheet" name="mainSheet">
+                        <a>Title</a>
+                        <h1>
+                            Title
+                            <field name="ArtTitle" string="Article Name" placeholder="test"/>
+                        </h1>
+
+                        <field name="Author" string="Owner"/>
+                        <field name="CreatedAt"/>
+                        <field name="Description"/>
+                        <field name="Version"/>
+                        <field name="Status"/>
+                        <field name="LastEditedBy"/>
+                        <field name="Problem"/>
+                        <field name="Symptoms"/>
+                        <field name="Solutions"/>
+                        <field name="Inform"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="unite_kb_article">
+	<field name="name">Unite Knowledge Base</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">unite.kb.article</field>
+            <!--<field name="res_id" ref="mainTree"/>-->
+        </record>
+
+    </data>
+</odoo>
